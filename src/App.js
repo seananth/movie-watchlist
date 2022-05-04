@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalProvider } from "./context/GlobalState";
 
 //pages
 import { Search } from "./pages/Search";
@@ -6,14 +7,14 @@ import { Watchlist } from "./pages/Watchlist";
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Search />} />
           <Route path="/watchlist" element={<Watchlist />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </GlobalProvider>
   );
 }
 
