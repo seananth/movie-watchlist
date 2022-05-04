@@ -3,7 +3,6 @@ import axios from "axios";
 import { Container } from "../components/Container";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
-import { MovieCard } from "../components/MovieCard";
 import { MovieListSection } from "../components/MovieListSection";
 
 export const Search = () => {

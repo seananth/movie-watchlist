@@ -3,7 +3,6 @@ import { GlobalContext } from "../context/GlobalState";
 import { Container } from "../components/Container";
 //components
 import { Navbar } from "../components/Navbar";
-import { MovieCard } from "../components/MovieCard";
 import { MovieListSection } from "../components/MovieListSection";
 
 export const Watchlist = () => {
