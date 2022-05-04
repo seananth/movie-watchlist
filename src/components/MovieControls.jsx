@@ -45,14 +45,14 @@ export const MovieControls = ({ movie }) => {
 
       {buttonSwitch ? (
         <button
-          className="rounded-b hover:rounded-l-none font-bold w-2/3 p-2 bg-slate-900 hover:bg-red-800 text-red-700 hover:text-white hover:cursor-pointer"
+          className="rounded-b hover:rounded-l-none font-bold w-2/3 p-2 bg-slate-900 md:hover:bg-red-800 text-red-700 hover:text-white hover:cursor-pointer"
           onClick={() => removeFromWatchlist(movie.id)}
         >
           <FontAwesomeIcon icon={faTrash} /> Remove
         </button>
       ) : (
         <button
-          className="rounded-b hover:rounded-l-none font-bold w-2/3 p-2 bg-slate-900 hover:bg-red-800 text-white hover:cursor-pointer"
+          className="rounded-b hover:rounded-l-none font-bold w-2/3 p-2 bg-slate-900 md:hover:bg-red-800 text-white hover:cursor-pointer"
           onClick={() => addToWatchlist(movie)}
         >
           <FontAwesomeIcon icon={faPlus} /> Add
