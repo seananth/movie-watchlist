@@ -7,7 +7,7 @@ export const SearchBar = ({ handleSearch, searchQuery }) => {
       value={searchQuery}
       onChange={(e) => handleSearch(e)}
       placeholder="Search movies.."
-      className="border rounded p-2 w-full my-1"
+      className="border rounded p-2 w-full lg:w-1/2 my-1"
     />
   );
 };

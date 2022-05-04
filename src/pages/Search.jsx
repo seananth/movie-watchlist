@@ -32,13 +32,15 @@ export const Search = () => {
     <div>
       <Navbar />
       <Container>
-        <section className="flex justify-center py-4">
+        <section id="Search" className="flex justify-center py-4">
           <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
         </section>
-        <section className="py-4">
+        <section id="Movie Result" className="py-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {searchResult.length > 0
-              ? searchResult.map((movie) => <MovieCard movie={movie} />)
+              ? searchResult.map((movie) => (
+                  <MovieCard movie={movie} key={movie.id} />
+                ))
               : null}
           </div>
         </section>

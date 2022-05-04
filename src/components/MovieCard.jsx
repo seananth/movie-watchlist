@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { MovieCardOverlay } from "./MovieCardOverlay";
+import { MovieControls } from "./MovieControls";
 
 export const MovieCard = ({ movie }) => {
-  const [activeFavorite, setActiveFavorite] = useState(false);
   return (
     <div className="border rounded-lg shadow hover:shadow-md">
       <div className="relative overflow-hidden">
@@ -16,24 +15,10 @@ export const MovieCard = ({ movie }) => {
         <p className="text-white font-bold absolute top-2 left-2 bg-amber-400 p-1 rounded">
           {movie.vote_average}/10
         </p>
-        <div
-          className={`absolute top-2 right-2 py-1 px-2 rounded-lg bg-snakeBlue hover:scale-110 cursor-pointer ${
-            activeFavorite ? "text-amber-400" : "text-white"
-          }`}
-        >
-          <FontAwesomeIcon icon={faStar} />
-        </div>
+
+        <MovieCardOverlay movie={movie} />
       </div>
-      <div className="flex">
-        <button
-          value="1"
-          className="rounded-b font-bold w-full p-2 bg-white hover:bg-red-800 hover:text-white hover:cursor-pointer"
-        >
-          <span>
-            <FontAwesomeIcon icon={faPlus} /> Add
-          </span>
-        </button>
-      </div>
+      <MovieControls />
     </div>
   );
 };
