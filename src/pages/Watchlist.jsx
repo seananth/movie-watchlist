@@ -9,7 +9,7 @@ export const Watchlist = () => {
   const { watchlist, favorites } = useContext(GlobalContext);
 
   return (
-    <div>
+    <div className="bg-slate-800 min-h-screen">
       <Navbar />
       <Container>
         <MovieListSection list={watchlist} title="Your Watchlist" />

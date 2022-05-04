@@ -43,7 +43,7 @@ export const Search = () => {
   };
 
   return (
-    <div>
+    <div className="bg-slate-800">
       <Navbar />
       <Container>
         <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />

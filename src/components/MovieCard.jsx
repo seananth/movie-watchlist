@@ -5,7 +5,7 @@ import { MovieControls } from "./MovieControls";
 export const MovieCard = ({ movie }) => {
   return (
     <div>
-      <div className="border rounded-lg shadow hover:shadow-md">
+      <div className="rounded-lg shadow hover:shadow-md bg-slate-900">
         <div className="relative overflow-hidden">
           {movie.poster_path ? (
             <img

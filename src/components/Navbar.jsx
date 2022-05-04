@@ -4,7 +4,7 @@ import { Container } from "./Container";
 
 export const Navbar = () => {
   return (
-    <div className="bg-red-800">
+    <div className="bg-slate-900">
       <Container>
         <div className="flex justify-between py-2 text-white font-bold">
           <Link className="bg-white rounded px-1 text-black" to="/">
