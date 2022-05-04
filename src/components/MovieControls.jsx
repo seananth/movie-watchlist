@@ -4,8 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export const MovieControls = ({ movie }) => {
-  const { addToWatchlist, addToFavorites, watchlist, favorites } =
-    useContext(GlobalContext);
+  const {
+    addToWatchlist,
+    addToFavorites,
+    removeFromWatchlist,
+    watchlist,
+    favorites,
+  } = useContext(GlobalContext);
 
   //check if already on watchlist
   let alreadyOnWatchlist = watchlist.find(
@@ -34,7 +39,7 @@ export const MovieControls = ({ movie }) => {
       {buttonSwitch ? (
         <button
           className="rounded-b hover:rounded-l-none font-bold w-2/3 p-2 bg-white hover:bg-red-800 hover:text-white hover:cursor-pointer"
-          // onClick={() => addToWatchlist(movie)}
+          onClick={() => removeFromWatchlist(movie.id)}
         >
           <FontAwesomeIcon icon={faTrash} /> Remove
         </button>

@@ -13,7 +13,7 @@ export const Watchlist = () => {
       <Navbar />
       <Container>
         <section id="Watchlist" className="py-4">
-          <p className="font-bold text-2xl">Your Watchlist</p>
+          <p className="font-bold text-2xl pb-2">Your Watchlist</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {watchlist.length > 0
               ? watchlist.map((movie) => (
@@ -22,8 +22,8 @@ export const Watchlist = () => {
               : null}
           </div>
         </section>
-        <section id="Watchlist" className="py-4">
-          <p className="font-bold text-2xl">Your Favorites</p>
+        <section id="Favorites" className="py-4">
+          <p className="font-bold text-2xl pb-2">Your Favorites</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {favorites.length > 0
               ? favorites.map((movie) => (

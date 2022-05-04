@@ -1,6 +1,8 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
 
+//todo add to and check local storage
+
 //initial state
 const initialState = {
   watchlist: [],
@@ -21,6 +23,12 @@ export const GlobalProvider = (props) => {
   const addToFavorites = (movie) => {
     dispatch({ type: "ADD_TO_FAVORITES", payload: movie });
   };
+  const removeFromWatchlist = (id) => {
+    dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: id });
+  };
+  const removeFromFavorites = (id) => {
+    dispatch({ type: "REMOVE_FROM_FAVORITES", payload: id });
+  };
 
   return (
     <GlobalContext.Provider
@@ -29,6 +37,7 @@ export const GlobalProvider = (props) => {
         favorites: state.favorites,
         addToWatchlist,
         addToFavorites,
+        removeFromWatchlist,
       }}
     >
       {props.children}
