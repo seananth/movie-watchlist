@@ -13,13 +13,17 @@ export const Search = () => {
   const API_KEY = "d0051e764e60b395b912da9a68a2327b"; //should be in a .env
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-      )
-      .then((res) => {
-        setPopular(res.data.results);
-      });
+    try {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        )
+        .then((res) => {
+          setPopular(res.data.results);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const handleSearch = (e) => {
