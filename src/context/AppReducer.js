@@ -1,4 +1,4 @@
-export default (state, action) => {
+export default function AppReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_WATCHLIST":
       return {
@@ -27,4 +27,4 @@ export default (state, action) => {
     default:
       return state;
   }
-};
+}
