@@ -29,17 +29,17 @@ export const MovieControls = ({ movie }) => {
     <div className="flex">
       {favoritesSwitch ? (
         <button
-          className={`rounded-b font-bold w-1/3 p-2 bg-slate-900 hover:text-white hover:cursor-pointer text-amber-400`}
+          className={`rounded-b font-bold w-1/3 p-2 bg-slate-900 hover:cursor-pointer text-amber-400`}
           onClick={() => removeFromFavorites(movie.id)}
         >
-          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} className="hover:scale-105" />
         </button>
       ) : (
         <button
-          className={`rounded-b font-bold w-1/3 p-2 bg-slate-900 hover:text-amber-400 hover:cursor-pointer text-white`}
+          className={`rounded-b font-bold w-1/3 p-2 bg-slate-900 hover:cursor-pointer text-white`}
           onClick={() => addToFavorites(movie)}
         >
-          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} className="hover:scale-105" />
         </button>
       )}
 
