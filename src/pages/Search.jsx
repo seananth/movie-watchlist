@@ -12,8 +12,7 @@ export const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
   const API_KEY = "d0051e764e60b395b912da9a68a2327b"; //should be in a .env
 
-  //get popular movies on start
-
+  //get popular
   useEffect(() => {
     const initData = async () => {
       try {
@@ -31,7 +30,7 @@ export const Search = () => {
     initData();
   }, []);
 
-  //
+  //search
   useEffect(() => {
     if (searchQuery !== "") {
       try {

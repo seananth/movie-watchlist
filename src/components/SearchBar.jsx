@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SearchBar = ({ debouncedOnChange, searchQuery }) => {
+export const SearchBar = ({ debouncedOnChange }) => {
   return (
     <section
       id="Search"
