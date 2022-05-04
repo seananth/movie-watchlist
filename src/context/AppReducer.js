@@ -5,6 +5,11 @@ export default (state, action) => {
         ...state,
         watchlist: [action.payload, ...state.watchlist],
       };
+    case "ADD_TO_FAVORITES":
+      return {
+        ...state,
+        favorites: [action.payload, ...state.favorites],
+      };
     default:
       return state;
   }

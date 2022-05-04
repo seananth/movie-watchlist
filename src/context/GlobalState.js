@@ -18,6 +18,9 @@ export const GlobalProvider = (props) => {
   const addToWatchlist = (movie) => {
     dispatch({ type: "ADD_TO_WATCHLIST", payload: movie });
   };
+  const addToFavorites = (movie) => {
+    dispatch({ type: "ADD_TO_FAVORITES", payload: movie });
+  };
 
   return (
     <GlobalContext.Provider
@@ -25,6 +28,7 @@ export const GlobalProvider = (props) => {
         watchlist: state.watchlist,
         favorites: state.favorites,
         addToWatchlist,
+        addToFavorites,
       }}
     >
       {props.children}
