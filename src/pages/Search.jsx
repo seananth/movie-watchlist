@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "../components/Container";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
 import { MovieCard } from "../components/MovieCard";
+import { MovieListSection } from "../components/MovieListSection";
 
 export const Search = () => {
+  const [popular, setPopular] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const API_KEY = "d0051e764e60b395b912da9a68a2327b";
+  const API_KEY = "d0051e764e60b395b912da9a68a2327b"; //should be in a .env
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+      )
+      .then((res) => {
+        setPopular(res.data.results);
+      });
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     setSearchQuery(e.target.value);
 
     try {
@@ -32,18 +43,9 @@ export const Search = () => {
     <div>
       <Navbar />
       <Container>
-        <section id="Search" className="flex justify-center py-4">
-          <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
-        </section>
-        <section id="Movie Result" className="py-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {searchResult.length > 0
-              ? searchResult.map((movie) => (
-                  <MovieCard movie={movie} key={movie.id} />
-                ))
-              : null}
-          </div>
-        </section>
+        <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
+        <MovieListSection list={searchResult} title="" />
+        <MovieListSection list={popular} title="Popular Movies" />
       </Container>
     </div>
   );
