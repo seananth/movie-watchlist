@@ -4,6 +4,7 @@ import { Container } from "../components/Container";
 //components
 import { Navbar } from "../components/Navbar";
 import { MovieCard } from "../components/MovieCard";
+import { MovieListSection } from "../components/MovieListSection";
 
 export const Watchlist = () => {
   const { watchlist, favorites } = useContext(GlobalContext);
@@ -12,26 +13,8 @@ export const Watchlist = () => {
     <div>
       <Navbar />
       <Container>
-        <section id="Watchlist" className="py-4">
-          <p className="font-bold text-2xl pb-2">Your Watchlist</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {watchlist.length > 0
-              ? watchlist.map((movie) => (
-                  <MovieCard movie={movie} key={movie.id} />
-                ))
-              : null}
-          </div>
-        </section>
-        <section id="Favorites" className="py-4">
-          <p className="font-bold text-2xl pb-2">Your Favorites</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {favorites.length > 0
-              ? favorites.map((movie) => (
-                  <MovieCard movie={movie} key={movie.id} />
-                ))
-              : null}
-          </div>
-        </section>
+        <MovieListSection list={watchlist} title="Your Watchlist" />
+        <MovieListSection list={favorites} title="Your Favorites" />
       </Container>
     </div>
   );
