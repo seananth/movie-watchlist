@@ -3,6 +3,7 @@ import axios from "axios";
 import { Container } from "../components/Container";
 import { Navbar } from "../components/Navbar";
 import { SearchBar } from "../components/SearchBar";
+import { MovieCard } from "../components/MovieCard";
 
 export const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,16 +32,16 @@ export const Search = () => {
     <div>
       <Navbar />
       <Container>
-        <div className="flex justify-center">
-          <div className="flex flex-col">
-            <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
+        <section className="flex justify-center py-4">
+          <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
+        </section>
+        <section className="py-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {searchResult.length > 0
-              ? searchResult.map((result) => (
-                  <p key={result.id}>{result.title}</p>
-                ))
+              ? searchResult.map((movie) => <MovieCard movie={movie} />)
               : null}
           </div>
-        </div>
+        </section>
       </Container>
     </div>
   );
