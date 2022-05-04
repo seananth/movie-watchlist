@@ -18,7 +18,7 @@ export const MovieCard = ({ movie }) => {
 
         <MovieCardOverlay movie={movie} />
       </div>
-      <MovieControls />
+      <MovieControls movie={movie} />
     </div>
   );
 };
