@@ -38,6 +38,7 @@ export const GlobalProvider = (props) => {
         addToWatchlist,
         addToFavorites,
         removeFromWatchlist,
+        removeFromFavorites,
       }}
     >
       {props.children}

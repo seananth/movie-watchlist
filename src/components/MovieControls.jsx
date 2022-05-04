@@ -8,6 +8,7 @@ export const MovieControls = ({ movie }) => {
     addToWatchlist,
     addToFavorites,
     removeFromWatchlist,
+    removeFromFavorites,
     watchlist,
     favorites,
   } = useContext(GlobalContext);
@@ -26,15 +27,21 @@ export const MovieControls = ({ movie }) => {
 
   return (
     <div className="flex">
-      <button
-        disabled={favoritesSwitch}
-        className={`rounded-b font-bold w-1/3 p-2 bg-white hover:text-amber-400 hover:cursor-pointer ${
-          favoritesSwitch ? "text-amber-400" : "text-black"
-        }`}
-        onClick={() => addToFavorites(movie)}
-      >
-        <FontAwesomeIcon icon={faStar} />
-      </button>
+      {favoritesSwitch ? (
+        <button
+          className={`rounded-b font-bold w-1/3 p-2 bg-white hover:text-black hover:cursor-pointer text-amber-400`}
+          onClick={() => removeFromFavorites(movie.id)}
+        >
+          <FontAwesomeIcon icon={faStar} />
+        </button>
+      ) : (
+        <button
+          className={`rounded-b font-bold w-1/3 p-2 bg-white hover:text-amber-400 hover:cursor-pointer text-black`}
+          onClick={() => addToFavorites(movie)}
+        >
+          <FontAwesomeIcon icon={faStar} />
+        </button>
+      )}
 
       {buttonSwitch ? (
         <button
